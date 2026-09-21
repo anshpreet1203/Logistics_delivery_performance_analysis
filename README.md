@@ -26,25 +26,7 @@ The project combines **MySQL, Power Query, Power BI, DAX, and data visualization
 
 ## Project Workflow
 
-```text
-Raw CSV
-   ↓
-Data Cleaning & Transformation
-   ↓
-Power Query
-   ↓
-MySQL
-   ↓
-SQL Analysis
-   ↓
-Power BI Data Model
-   ↓
-DAX Measures & Calculated Columns
-   ↓
-3-Page Interactive Dashboard
-   ↓
-Business Insights
-```
+
 
 ## Data Preparation
 
@@ -91,13 +73,7 @@ The SQL analysis contains **15+ analytical queries** covering:
 - High-cost routes
 - Shipment volume by destination
 
-### Advanced SQL
-- `CASE WHEN`
-- `GROUP BY`
-- `HAVING`
-- Date functions
-- CTEs
-- Window functions such as `RANK()`
+
 
 ## Power BI Dashboard
 
@@ -145,47 +121,9 @@ Key elements:
 - Average delivery days by warehouse
 - Vehicle-type delivery analysis
 
-## Key DAX Metrics
 
-Examples of the main calculated metrics include:
 
-```DAX
-Average Delivery Days =
-AVERAGE(Fact_Deliveries[Average Delivery Days])
-```
 
-```DAX
-On Time Deliveries =
-CALCULATE(
-    COUNTROWS(Fact_Deliveries),
-    Fact_Deliveries[On_Time] = "On Time"
-)
-```
-
-```DAX
-On Time % =
-DIVIDE(
-    [On Time Deliveries],
-    [Delivered Orders],
-    0
-)
-```
-
-The project also uses calculated columns for row-level metrics such as delivery duration and on-time/late classification.
-
-## Dashboard Design
-
-The dashboard was designed to move from high-level business performance to operational analysis:
-
-```text
-Executive Overview
-       ↓
-Delivery Performance
-       ↓
-Carrier & Warehouse Analysis
-```
-
-This structure keeps the dashboard focused on **KPIs, trends, comparisons, and operational problem areas** instead of overcrowding pages with unnecessary visuals.
 
 ## Project Outcomes
 
@@ -197,21 +135,18 @@ The project demonstrates the ability to:
 - Create calculated columns and DAX measures.
 - Analyze delivery reliability and operational efficiency.
 - Compare carriers and warehouses using multiple KPIs.
-- Build an interactive 3-page BI dashboard.
 - Translate raw operational data into business-oriented insights.
+  
+## Business Recommendations
 
-## Quantified Project Scope
+- Review low-performing carriers by investigating carriers with lower on-time rates or higher delivery times.
+- Optimize carrier allocation using a combination of delivery reliability, delivery speed, shipment capacity, and cost.
+- Investigate high-delay cities/routes to determine whether delays are related to distance, traffic, warehouse processing, or carrier coverage.
+- Review warehouse bottlenecks where high shipment volumes coincide with weaker delivery performance.
+- Monitor delivery KPIs regularly, particularly On-Time %, Average Delivery Days, and Delayed Orders.
+- Investigate high-cost carriers/routes and compare their cost against the service level they provide.
+- Improve data-quality controls by standardizing carrier names and validating important shipment fields during data ingestion.
 
-| Area | Scope |
-|---|---:|
-| Power BI dashboard pages | **3** |
-| SQL analytical queries | **15+** |
-| Core KPI metrics | **10+** |
-| Main analysis areas | **5+** |
-| Technologies used | **5** |
-| Data preparation workflow | **End-to-end** |
-
-> **Note:** Dataset-specific figures such as total rows, total orders, total shipping cost, and on-time percentage should be populated from the final cleaned dataset/dashboard rather than estimated. This avoids reporting fabricated project metrics.
 
 ## Repository Structure
 
@@ -229,16 +164,9 @@ logistics-supply-chain-analytics/
 │   └── logistics.pbix
 │
 └── screenshots/
-    ├── executive-overview.png
-    ├── delivery-performance.png
-    └── carrier-warehouse-analysis.png
+    ├── executive-overview.jpg
+    ├── delivery-performance.jpg
+    └── carrier-warehouse-analysis.jpg
 ```
 
-## Resume Description
 
-**Logistics & Supply Chain Analytics | SQL, Power BI, DAX, Power Query**
-
-- Built a **3-page Power BI dashboard** to analyze logistics KPIs including shipment volume, shipping cost, delivery speed, on-time delivery, carrier performance, and warehouse operations.
-- Developed **15+ MySQL analytical queries** using aggregations, `CASE WHEN`, date functions, CTEs, and window functions to evaluate delivery and operational performance.
-- Cleaned and transformed raw logistics data using **Power Query**, standardizing carrier names, handling missing values, validating data types, and creating derived delivery-performance fields.
-- Created **10+ KPI metrics and DAX calculations** for on-time delivery %, average delivery days, delayed orders, shipping cost, and carrier/warehouse performance.
